@@ -27,6 +27,7 @@ export class BBHelpHelpWidget {
   private defaultHelpKey: string = 'default.html';
   private loadCalled: boolean = false;
   private isSetForMobile: boolean;
+  private configSettings: any = {};
 
   constructor(
     widgetRenderer: BBHelpHelpWidgetRenderer,
@@ -63,6 +64,7 @@ export class BBHelpHelpWidget {
     if (this.loadCalled) {
       return;
     }
+    this.configSettings = config;
 
     this.init();
 
@@ -132,7 +134,7 @@ export class BBHelpHelpWidget {
     this.communicationService.postMessage({
       helpKey,
       messageType: 'update-current-help-key'
-    });
+    }, this.configSettings.preferredOrigin);
   }
 
   public setHelpKeyToDefault(): void {

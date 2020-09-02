@@ -27,4 +27,5 @@ export interface HelpConfig {
   whatsNewRevisions?: any;
   hostQueryParams?: string;
   whats_new_help_key?: string;
+  preferredOrigin?: string;
 }
